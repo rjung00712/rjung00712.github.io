@@ -10,7 +10,7 @@ function collapseNavbar() {
 $(window).scroll(collapseNavbar);
 $(document).ready(collapseNavbar);
 
-// jQuery for page scrolling feature - requires jQuery Easing plugin
+// jQuery for page scrolling feature
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
@@ -20,7 +20,6 @@ $(function() {
         event.preventDefault();
     });
 
-
     //this is for the video scrolling part
     $('a.page-scrolling').bind('click', function(event) {
         var $anchor = $(this);
@@ -29,7 +28,6 @@ $(function() {
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
-
 });
 
 // Closes the Responsive Menu on Menu Item Click
@@ -39,7 +37,6 @@ $('.navbar-collapse ul li a').click(function() {
 
 
 //This section is for the image sliding show
-
     var slideImages = new Array();
     var whichimage = 0;
 
@@ -55,8 +52,8 @@ $('.navbar-collapse ul li a').click(function() {
     var x;
     var v;
 
+    // this function continuously iterates through the array of image objects
     function slideit() {
-
         x = document.getElementsByTagName("img").item(0);
         v = x.getAttribute("src");
 
@@ -65,6 +62,7 @@ $('.navbar-collapse ul li a').click(function() {
 
         v = slideImages[step].src;
 
+        // gets the current image object from html file
         document.getElementById('slide').src = slideImages[step].src;
 
         whichimage = step;
@@ -75,8 +73,11 @@ $('.navbar-collapse ul li a').click(function() {
         else {
             step = 0;
         }
+
+        // sets the slideit functions current image object in html file
         x.setAttribute("src", v);
 
+        // timing delay for 2.5 seconds before transition to new image
         setTimeout("slideit()",2500);
     }
 
